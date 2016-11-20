@@ -1,0 +1,38 @@
+<h1 class="title">FitBot Demo</h1>
+<div class="wrapper">
+  <nav id="chat-nav" class="chat-nav">
+    <div class="default-nav">
+      <div class="main-nav">
+        <div class="toggle"></div>
+        <div class="main-nav-item">FitBot</div>
+      </div>
+    </div>
+  </nav>
+
+  <div id="inner" class="inner">
+    <div id="content" class="content">
+                    <div class="message-wrapper me" ng-repeat="message in messages">
+                           <!-- <span> {{ message.text }} </span> -->
+                           <span ng-hide="message.action == 'getExercise'">{{ message.text }}</span>
+                           <div ng-show="message.action == 'getExercise'" class="list card">
+                                     <div class="item item-body">
+                                        <h2>{{message.exerciseName}}</h2>
+                                        <p>{{message.text}}</p>
+
+                                        <a class="item item-icon-left assertive" ng-click="showVideo(message.video)"> <i class="icon ion-ios-play"></i>Watch Video</a>
+                                        <div class="video-container" ng-show = "playVideo == 'true' ">
+                                               <iframe class="youtube-player" type="text/html" src="{{trustSrc(videoFormatted)}}" allowfullscreen frameborder="0" width="240" height="250"></iframe>
+                                        </div>
+                                     </div>
+                          </div>
+                    </div>
+
+    </div>
+  </div>
+
+  <div id="bottom" class="bottom">
+    <textarea id="input" class="input" placeholder="Type your message" on-return="sendMessage()" ng-model="data.message"></textarea>
+    <div id="send" class="send" ng-click="sendMessage()" ></div>
+  </div>
+
+</div>

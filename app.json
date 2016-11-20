@@ -1,0 +1,7 @@
+{
+  "name": "FitBot",
+  "description": "FitBot webhook",
+  "repository": "https://github.com/algonquin-chatbot/Fitbot-LandingPage.git",
+  "logo": "http://xvir.github.io/img/apiai.png",
+  "keywords": ["api.ai", "natural language"]
+}
