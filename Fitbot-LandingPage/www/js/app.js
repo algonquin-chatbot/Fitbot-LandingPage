@@ -3,7 +3,10 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', [
+        'ionic',
+        'starter.controllers'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,3 +25,26 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+// Just gonna put both the landing page and app in this project.
+// They'll be separated by the urls:
+//      landingPage
+//      mobileApp
+// The landing page is going to be the default page. We will also
+// embedthe mobileApp in the landing page for demo purposes
+.config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        .state('landingPage', {
+                url: "/landingPage",
+                templateUrl: "views/landing-page.html",
+                controller: 'LandingPageCtrl'
+        })
+        .state('mobileApp', {
+            url: "/mobileApp",
+            templateUrl: "views/mobile-app.html",
+            controller: 'MobileAppCtrl'
+        });
+
+    // Default
+    $urlRouterProvider.otherwise('/landingPage');
+});
