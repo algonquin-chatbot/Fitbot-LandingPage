@@ -1,7 +1,8 @@
-var express = require('express'),
-    app = express();
+var express = require('express')
+var path = require('path')
+var app = express()
 
-app.use(express.static('www'));
+app.use(express.static(path.resolve(__dirname, “www”)));
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {
